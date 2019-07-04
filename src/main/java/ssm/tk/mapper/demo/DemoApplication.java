@@ -2,8 +2,9 @@ package ssm.tk.mapper.demo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import tk.mybatis.spring.annotation.MapperScan;
 
-@tk.mybatis.spring.annotation.MapperScan(basePackages = "ssm.tk.mapper.demo.mapper")
+@MapperScan(basePackages = {"ssm.tk.mapper.demo.dao"})
 @SpringBootApplication(scanBasePackages = {"ssm.tk.mapper.demo.service", "ssm.tk.mapper.demo.controller"})
 public class DemoApplication {
 

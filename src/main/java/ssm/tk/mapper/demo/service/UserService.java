@@ -2,6 +2,8 @@ package ssm.tk.mapper.demo.service;
 
 import ssm.tk.mapper.demo.model.User;
 
+import java.util.List;
+
 /**
  * @ClassName UserService
  * @Description TODO
@@ -12,5 +14,9 @@ import ssm.tk.mapper.demo.model.User;
 public interface UserService {
 
     int insert(User user);
+
+    String selectRolesByName(String name);
+
+    List<User> list();
 
 }

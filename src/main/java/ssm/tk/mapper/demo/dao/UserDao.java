@@ -1,4 +1,4 @@
-package ssm.tk.mapper.demo.mappers;
+package ssm.tk.mapper.demo.dao;
 
 import ssm.tk.mapper.demo.model.User;
 import tk.mybatis.mapper.common.Mapper;
@@ -11,4 +11,7 @@ import tk.mybatis.mapper.common.Mapper;
  * @Version 1.0
  **/
 public interface UserDao extends Mapper<User> {
+
+    String selectRolesByName(String name);
+
 }

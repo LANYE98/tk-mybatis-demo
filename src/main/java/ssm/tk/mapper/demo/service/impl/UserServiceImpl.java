@@ -2,11 +2,13 @@ package ssm.tk.mapper.demo.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
-import ssm.tk.mapper.demo.mappers.UserDao;
+import ssm.tk.mapper.demo.dao.UserDao;
 import ssm.tk.mapper.demo.model.User;
 import ssm.tk.mapper.demo.service.UserService;
 
+import java.util.List;
 import java.util.UUID;
 
 /**
@@ -17,6 +19,7 @@ import java.util.UUID;
  * @Version 1.0
  **/
 @Service
+@Transactional
 public class UserServiceImpl implements UserService {
 
     private @Autowired UserDao userDao;
@@ -27,5 +30,15 @@ public class UserServiceImpl implements UserService {
             user.setId(UUID.randomUUID().toString());
         }
         return userDao.insert(user);
+    }
+
+    @Override
+    public String selectRolesByName(String name) {
+        return userDao.selectRolesByName(name);
+    }
+
+    @Override
+    public List<User> list() {
+        return userDao.selectAll();
     }
 }
